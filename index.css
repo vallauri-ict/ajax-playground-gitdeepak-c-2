@@ -1,0 +1,421 @@
+/******Aggiunta Font*********/
+@font-face {
+	font-family: 'Hanken Grotesk';
+	src: local('Hanken Grotesk'),   /* nome del font */
+		 url('font/Hanken Grotesk/WEB/HankenGrotesk-Regular.woff') format('woff'),
+		 url('font/Hanken Grotesk/OTF/HankenGrotesk-Regular.otf') format('otf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Hanken GroteskBold';
+	src: local('Hanken Grotesk'),   /* nome del font */
+		 url('font/Hanken Grotesk/WEB/HankenGrotesk-Semibold.woff') format('woff'),
+		 url('font/Hanken Grotesk/OTF/HankenGrotesk-Semibold.otf') format('otf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+	font-family: 'Hanken Grotesk', verdana;
+}
+
+/*********Colore selezione**************/
+::-moz-selection{
+    color:#fff;
+    background-color:#83ba43;
+}
+::selection{
+    color:#fff;
+    background-color:#83ba43;
+}
+
+/*********Gestione header**************/
+header {
+    width: 100%;
+    height: 500px;
+    background: #2c2e31;
+    padding: 2% 0;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1{
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+}
+
+h4{
+  color: #fff;
+  text-align: center;;
+  font-size: 1.8em;
+}
+
+/*********Gestione sezione informazioni**************/
+section{
+  width: 50%;
+  margin: -13% auto;
+  border-radius: 10px;
+  background: #fff;
+  padding: 2%;
+  z-index: 1;
+}
+
+#selection {
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    grid-template-rows: 150px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+img {
+    display: block;
+}
+
+.frecce {
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    opacity: 0.125;
+    transition: opacity .5s;
+}
+
+.frecce:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.card_offset{
+    margin-top:-200px
+}
+.card{
+    position:relative;
+    padding:20px 0;
+    width:100%;
+    background:#fff;
+    border-radius:3px;
+    box-shadow:0 0 1px rgba(0,0,0,.5);
+    overflow:hidden;
+    text-align:center;
+    z-index:5
+}
+.card:after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:100%;
+    height:130px;
+    top:0;
+    background:#f9f9f9;
+    border-bottom:1px solid rgba(0,0,0,.15);
+    z-index:-1
+}
+.card .user_photo{
+    position:relative;
+    background:#fff;
+    padding:5px;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    margin-bottom:30px;
+    border:1px solid rgba(0,0,0,.25)
+}
+.card .user_photo img{
+    width:150px;
+    border-radius:50%
+}
+
+.horizontal_center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card .user_photo .refresh{
+    position:absolute;
+    bottom:-30px;
+    left:50%;
+    padding:10px 15px;
+    color:#fff;
+    background:rgba(0,0,0,.75);
+    border-radius:3px;
+    text-decoration:none;
+    opacity:0;
+    display:block;
+    transform:translateX(-50%);
+    transition:all .25s ease-out
+}
+.card .user_photo:hover .refresh{
+    bottom:-20px;
+    opacity:1
+}
+.card #user_title{
+    color:#999;
+    font-size:18px;
+    margin:5% 0 0 0;
+}
+.card #user_value{
+    color:#2c2e31;
+    font-size:38px;
+    margin:5px;
+    text-transform:capitalize
+}
+.values_list{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    float:left
+}
+.values_list li{
+    cursor:pointer;
+    display:block;
+    width:40px;
+    height:48px;
+    float:left;
+    margin:20px;
+    background-image:url(img/card_icons.png);
+    background-size:378px;
+    background-position-y:-48px;
+    transition:all .25s ease-out
+}
+.values_list li:before{
+    content:attr(data-label);
+    opacity:0
+}
+.values_list li.active[id=name]{
+    background-position:0 -96px;
+}
+
+.values_list li[id=name]{
+    background-position:0 -48px;
+}
+.values_list li[id=email]{
+    background-position:-68px -48px;
+}
+.values_list li[id=birthday]{
+    background-position:-135px -48px;
+}
+.values_list li[id=location]{
+    background-position:-203px -48px;
+}
+.values_list li[id=phone]{
+    background-position:-270px -48px;
+}
+.values_list li[id=password]{
+    background-position:-338px -48px;
+}
+@media screen and (max-width:400px){
+    .card_offset{
+        margin-top:-80px
+    }
+    .card #user_value{
+        font-size:28px
+    }
+    li[data-label=email]{
+        display:none
+    }
+    .card .values_list{
+        margin-top:25px
+    }
+    .card .values_list li{
+        margin:0 5px
+    }
+}
+
+/********Gestione sezione filtri***************/
+section.filter {
+    margin: 0 auto;
+    margin-top: 13%;
+    margin-bottom: 3%;
+    width: fit-content;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 25px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.filter div{
+    display: grid;
+    grid-template-columns: 170px auto;
+    grid-column-gap: 15px;
+    width: fit-content;
+}
+
+#naz {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 25px;
+}
+
+#btnInvia{
+    background: #83ba43;
+    color: #2c2e31;
+    font-size: 12pt;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#btnInvia:hover, #btnInvia:focus{
+    background: #2c2e31;
+    color: #f9f9f9;
+}
+
+input[type=checkbox], .rdo {
+    margin-right: 5px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.checkmarkRdo{
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark, .container:hover input ~ .checkmarkRdo {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark , .container input:checked ~ .checkmarkRdo{
+    background-color: #83ba43;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after, .checkmarkRdo:after{
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+input[type=button] {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    background: #83ba43;
+    font-weight: bold;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+/* SLIDER */
+.slider {
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 200px;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    margin-top: 7px;
+}
+
+.filter .sliderNumber{
+    display: inline-block;
+    width: 10px;
+    margin-left: 30px;
+    margin-top: 2px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #83ba43;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #83ba43;
+    cursor: pointer;
+}
+/* SLIDER */
+
+/* PROGRESS BAR */
+#nPersone {
+    padding: 2px 0 2px 0;
+    color: #fff;
+    background-color: #83ba43;
+    width: 20%;
+    text-align: center;
+    /*margin: 0 auto;*/
+    transition: all .3s cubic-bezier(0, 0.85, 0.25, 1);
+}
+/* PROGRESS BAR */
