@@ -14,4 +14,5 @@
 
 ## Team sviluppatori:
 > 4B Info - Vallauri Fossano Italy
- Autore: Chopra Deepak
+
+#### Autore: Chopra Deepak
