@@ -1,4 +1,4 @@
-# Progetto RANDOM USER
+# RANDOM USER
 ### Get latest from https://github.com/vallauri-ict/ajax-playground-gitdeepak-c-2
 
 ## Descrizione
