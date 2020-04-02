@@ -1,0 +1,117 @@
+html, body {
+  background: #2c2e31;
+}
+
+/******Aggiunta Font*********/
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: local('Hanken Grotesk'),   /* nome del font */
+  url('font/Hanken Grotesk/WEB/HankenGrotesk-Regular.woff') format('woff'),
+  url('font/Hanken Grotesk/OTF/HankenGrotesk-Regular.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hanken GroteskBold';
+  src: local('Hanken Grotesk'),   /* nome del font */
+  url('font/Hanken Grotesk/WEB/HankenGrotesk-Semibold.woff') format('woff'),
+  url('font/Hanken Grotesk/OTF/HankenGrotesk-Semibold.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Hanken Grotesk', verdana;
+}
+
+/*********Colore selezione**************/
+::-moz-selection{
+  color:#fff;
+  background-color:#83ba43;
+}
+
+h1{
+  padding: 2% 0;
+  text-align: center;
+  color: #fff;
+  font-size: 3em;
+}
+
+/**************Header********************/
+header{
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+  padding: 2em 2% 1.7em 2%;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+header label{
+  font-size: 15pt;
+}
+
+.dropdown{
+  margin: -0.5em 0 0 0;
+  padding: 0;
+}
+
+.btn-primary {
+  width: 100%;
+  color: #fff;
+  background-color: #83ba43;
+  border-color: #83ba43;
+}
+
+.btn-primary:active, .btn-primary:hover, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #70aa00;
+  border-color: #70aa00;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #83ba43;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(131, 186, 67, 0.73);
+}
+
+/**************Wrapper********************/
+#wrapper {
+  width: 50%;
+  margin: 2% auto;
+  padding: 1% 2% 2% 2%;
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+}
+
+#wrapper h2{
+  padding-bottom: 2%;
+  font-family: 'Hanken GroteskBold';
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+  height: 60px;
+}
+
+td {
+  height: 30px;
+}
