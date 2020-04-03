@@ -1,5 +1,7 @@
 # Es12_Finance
 
+#### Autore: Chopra Deepak
+
 ## Descrizione
 > Un semplice esercizio in cui si effetuano delle api call per poter caricare i dati in tabella. Il sito utilizzato è l'Alpha Vantage. La pagina ha un header con 2 filtri per la ricerca:
 -combobox che permette di scegliere il 'symbol' di cui visualizzare i dati
@@ -7,6 +9,9 @@
 
 ## Problema!!!
 >Alpha vantage, purtroppo, permette di effettuare solo 5 chiamte ajax al minuto ed 500 al giorno. Di conseguenza per la seconda parte dell'esercizio, l'applicazione va in errore avendo superato le call possibili
+
+## Img figurativa
+![Test Image 1](imgEsempio.png)
 
 ## Software neccesari:
 * Jet Brains(PhpStorm, WebStorm)
@@ -18,5 +23,3 @@
 
 ## Team sviluppatori:
 > 4B Info - Vallauri Fossano Italy
-
-#### Autore: Chopra Deepak
