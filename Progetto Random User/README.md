@@ -1,5 +1,4 @@
 # RANDOM USER
-### Get latest from https://github.com/vallauri-ict/ajax-playground-gitdeepak-c-2
 
 ## Descrizione
 > Il progetto è un primo approcio alla programmazione con chiamate ajax, quindi la  comunicazione con il server.  Si è preso come esempio il sito originale di Random User, cercando di creare un'applicazione simile ma ovviamente più semplice.
