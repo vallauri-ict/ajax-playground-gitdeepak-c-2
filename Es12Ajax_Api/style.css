@@ -1,5 +1,11 @@
 html, body {
   background: #2c2e31;
+  font-family: 'Hanken Grotesk', Verdana;
+}
+
+*{
+  padding: 0;
+  margin: 0;
 }
 
 /******Aggiunta Font*********/
@@ -21,16 +27,10 @@ html, body {
   font-style: normal;
 }
 
-*{
-  padding: 0;
-  margin: 0;
-  font-family: 'Hanken Grotesk', verdana;
-}
-
 /*********Colore selezione**************/
-::-moz-selection{
-  color:#fff;
-  background-color:#83ba43;
+::selection {
+  background-color: #83ba43;
+  color: white;
 }
 
 h1{
@@ -58,22 +58,8 @@ header label{
   font-size: 15pt;
 }
 
-.dropdown{
-  margin: -0.5em 0 0 0;
-  padding: 0;
-}
-
-.btn-primary {
-  width: 100%;
-  color: #fff;
-  background-color: #83ba43;
-  border-color: #83ba43;
-}
-
-.btn-primary:active, .btn-primary:hover, .show>.btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #70aa00;
-  border-color: #70aa00;
+.lst{
+  margin-top: -0.7em;
 }
 
 .form-control:focus {
@@ -86,7 +72,7 @@ header label{
 
 /**************Wrapper********************/
 #wrapper {
-  width: 50%;
+  width: 80%;
   margin: 2% auto;
   padding: 1% 2% 2% 2%;
   border-radius: 10px;
@@ -95,23 +81,18 @@ header label{
 }
 
 #wrapper h2{
-  padding-bottom: 2%;
+  padding-bottom: 0.3em;
   font-family: 'Hanken GroteskBold';
 }
 
-table {
-  table-layout: fixed;
-  width: 100%;
+.bg-info {
+  background-color: #83ba43!important;
+  font-family: 'Hanken GroteskBold'!important;
+  text-align: center;
+  line-height: 25pt;
 }
 
-table, th, td {
-  border: 1px solid black;
+#tabDati tbody{
+  text-align: center;
 }
 
-th {
-  height: 60px;
-}
-
-td {
-  height: 30px;
-}

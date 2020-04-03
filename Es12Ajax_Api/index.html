@@ -17,54 +17,43 @@
     <h1>Api Call - Finance</h1>
     <header>
         <label>Select the symbol:</label>
-        <!--Dropdown primary-->
-        <div class="dropdown">
-            <!--Trigger-->
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Symbol</button>
-            <!--Menu-->
-            <div class="dropdown-menu dropdown-primary">
-                <a class="dropdown-item" href="#">Microsoft - MSFT</a>
-                <a class="dropdown-item" href="#">Sony - SNE</a>
-                <a class="dropdown-item" href="#">Alibaba - BABA</a>
-                <a class="dropdown-item" href="#">IBM - IBM</a>
-                <a class="dropdown-item" href="#">Xiaomi - XIACF</a>
-            </div>
+        <div class="lst">
+            <select class="form-control" id="lstSymbol">
+                <option class="dropdown-item">Microsoft - MSFT</option>
+                <option class="dropdown-item">Sony - SNE</option>
+                <option class="dropdown-item">Alibaba - BABA</option>
+                <option class="dropdown-item">IBM - IBM</option>
+                <option class="dropdown-item">Xiaomi - XIACF</option>
+            </select>
         </div>
-        <!--/Dropdown primary-->
         <label>Insert the search word:</label>
         <div class="form-group">
-            <input type="text" class="form-control" id="matchingWord" placeholder="Enter matching word">
+            <input type="text" class="form-control" id="textMatchWord" placeholder="Enter matching word">
         </div>
     </header>
     <div id="wrapper">
         <h2>Data Tabel</h2>
-        <div id="quote">
-            <table cellspacing="0" cellpadding="3">
+        <!-- Tabella Dati -->
+        <div class="table-responsive" id="wrapDati">
+            <table class="table table-hover" id="tabDati">
+                <thead class="bg-info">
                 <tr>
                     <th>Symbol</th>
                     <th>Last Trade</th>
                     <th>Last Trade Time</th>
                     <th>Change</th>
                     <th>Open</th>
-                    <th>Previous Close</th>
+                    <th>Prevoius Close</th>
                     <th>Day's Low</th>
                     <th>Day's High</th>
                     <th>Volume</th>
                 </tr>
-                <tr>
-                    <td id="symbol"></td>
-                    <td id="lastTrade"></td>
-                    <td id="lastTradeTime"></td>
-                    <td id="change"></td>
-                    <td id="open"></td>
-                    <td id="previousClose"></td>
-                    <td id="daysLow"></td>
-                    <td id="daysHigh"></td>
-                    <td id="volume"></td>
-                </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
         </div>
+
     </div>
 </body>
 
