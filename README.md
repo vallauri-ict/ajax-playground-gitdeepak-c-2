@@ -1,5 +1,4 @@
 # AJAX
-### Get latest from https://github.com/vallauri-ict/ajax-playground-gitdeepak-c-2
 
 ## Descrizione
 > Qui vengono caricate i vari esercizi fatti con chiamate ajax
