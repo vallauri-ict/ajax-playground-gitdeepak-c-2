@@ -1,7 +1,7 @@
 # Es11_Banche
 
 ## Descrizione
-> Primo esercizio di ajax
+> Primo esercizio di ajax, in cui si utilizza un database per i dati e mediante le chiamate al server, questi sono caricati dinamicamente nella tabella. Si passano mediante due combobox, i filtri per la ricerca cosi che vengano restituiti quelli voluti.
 
 ## Software neccesari:
 * Jet Brains(PhpStorm, WebStorm)
