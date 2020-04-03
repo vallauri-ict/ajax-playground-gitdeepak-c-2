@@ -10,8 +10,8 @@
 ## Problema!!!
 >Alpha vantage, purtroppo, permette di effettuare solo 5 chiamte ajax al minuto ed 500 al giorno. Di conseguenza per la seconda parte dell'esercizio, l'applicazione va in errore avendo superato le call possibili
 
-## Img figurativa
-![Test Image 1](imgEsempio.png)
+## Image figurativa
+![imgFigurativa](imgEsempio.PNG)
 
 ## Software neccesari:
 * Jet Brains(PhpStorm, WebStorm)
