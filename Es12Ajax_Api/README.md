@@ -8,7 +8,7 @@
 -textbox in cui appena vengono inseriti almeno 2 caratteri, parte la api call che restituisce i dati in base al campo        inserito 
 
 ## Problema!!!
->Alpha vantage, purtroppo, permette di effettuare solo 5 chiamte ajax al minuto ed 500 al giorno. Di conseguenza per la seconda parte dell'esercizio, l'applicazione va in errore avendo superato le call possibili
+>Alpha vantage, purtroppo, permette di effettuare solo 5 chiamte ajax al minuto ed 500 al giorno. Di conseguenza per la seconda parte dell'esercizio, l'applicazione va in errore avendo superato le call possibili. Quindi per evitare ciò vengono limitate le chiamate e vengono caricati solamente 3 entry nella tabella
 
 ## Image figurativa
 ![imgFigurativa](imgEsempio.PNG)
