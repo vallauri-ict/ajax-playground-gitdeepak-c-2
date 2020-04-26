@@ -96,3 +96,17 @@ header label{
   text-align: center;
 }
 
+/**************Container********************/
+.container{
+  background: #fff;
+  padding: 1%;
+  width: 600px;
+  border-radius: 10px;
+  margin-bottom: 1%;
+}
+
+.container h2{
+  font-family: 'Hanken GroteskBold'!important;
+  text-align: center;
+  margin-bottom: 2%;
+}
