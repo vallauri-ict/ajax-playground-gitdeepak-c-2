@@ -2,6 +2,11 @@ $(document).ready(function () {
     let _lstSymbol = $("#lstSymbol").prop("selectedIndex", -1),
         _txtMatchWord = $("#textMatchWord");
 
+    $.getJSON("http://localhost:3000/chart", function (data) {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, data);
+    })
+
     //gestione onChange comboBox
     _lstSymbol.on("change", function () {
         let symbol = this.value.split(' - ')[1];
