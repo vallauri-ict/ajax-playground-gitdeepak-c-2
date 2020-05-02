@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Es12_ApiCall-Finance</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="index.js" type="application/javascript"></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Api Call - Finance</h1>
+    <header>
+        <label>Select the symbol:</label>
+        <div class="lst">
+            <select class="form-control" id="lstSymbol">
+                <option class="dropdown-item">Microsoft - MSFT</option>
+                <option class="dropdown-item">Sony - SNE</option>
+                <option class="dropdown-item">Alibaba - BABA</option>
+                <option class="dropdown-item">IBM - IBM</option>
+                <option class="dropdown-item">Xiaomi - XIACF</option>
+            </select>
+        </div>
+        <label>Insert the search word:</label>
+        <div class="form-group">
+            <input type="text" class="form-control" id="textMatchWord" placeholder="Enter matching word">
+        </div>
+    </header>
+    <div id="wrapper">
+        <h2>Data Tabel</h2>
+        <!-- Tabella Dati -->
+        <div class="table-responsive" id="wrapDati">
+            <table class="table table-hover" id="tabDati">
+                <thead class="bg-info">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Last Trade</th>
+                    <th>Last Trade Time</th>
+                    <th>Change</th>
+                    <th>Open</th>
+                    <th>Prevoius Close</th>
+                    <th>Day's Low</th>
+                    <th>Day's High</th>
+                    <th>Volume</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Grafico</h2>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+</body>
+
+</html>
