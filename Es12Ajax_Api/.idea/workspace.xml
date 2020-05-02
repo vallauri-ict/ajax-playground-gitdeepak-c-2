@@ -39,6 +39,13 @@
       <workItem from="1587486824997" duration="75000" />
       <workItem from="1587486971957" duration="137000" />
       <workItem from="1587895604753" duration="817000" />
+      <workItem from="1587897084866" duration="224000" />
+      <workItem from="1587899034997" duration="173000" />
+      <workItem from="1587899443597" duration="289000" />
+      <workItem from="1587899826301" duration="125000" />
+      <workItem from="1588347975969" duration="14000" />
+      <workItem from="1588348023662" duration="913000" />
+      <workItem from="1588430341106" duration="3957000" />
     </task>
     <servers />
   </component>
@@ -46,9 +53,13 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="162" key="SettingsEditor" timestamp="1587487104145">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1588431500665">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587487104145" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588431500665" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588432766120">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588432766120" />
   </component>
 </project>

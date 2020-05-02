@@ -1,7 +1,12 @@
+let apiKey = "&apikey=4GTDM1R962FYU16M",
+    nCall = 0;
+
 $(document).ready(function () {
     let _lstSymbol = $("#lstSymbol").prop("selectedIndex", -1),
         _txtMatchWord = $("#textMatchWord");
+    nCall = 0;
 
+    //creazione del grafico
     $.getJSON("http://localhost:3000/chart", function (data) {
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, data);
@@ -11,9 +16,14 @@ $(document).ready(function () {
     _lstSymbol.on("change", function () {
         let symbol = this.value.split(' - ')[1];
         $("#tabDati tbody").html("");
-        getGlobalQuotes(symbol);
+        if(nCall < 5) {
+            getGlobalQuotes(symbol);
+        }
+        else
+            alert("Limite richieste raggiunto!!");
     });
 
+    //gestione keyup textbox
     _txtMatchWord.on("keyup", function () {
         if(_txtMatchWord.val().length > 1) {
             getSymbolSearch(_txtMatchWord.val());
@@ -23,7 +33,7 @@ $(document).ready(function () {
 });
 
 function getGlobalQuotes(symbol) {
-    let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=4GTDM1R962FYU16M";
+    let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + apiKey;
     $.getJSON(url,
         function (data) {
             let _table = $("#tabDati tbody");
@@ -42,17 +52,25 @@ function getGlobalQuotes(symbol) {
             //$("#tabDati").DataTable();
         }
     );
+    nCall++;
 }
 
 function getSymbolSearch(txt) {
-    let url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + txt + "&apikey=4GTDM1R962FYU16M";
+    nCall++;
+    let url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + txt + apiKey;
     $.getJSON(url,
         function (data) {
             let symbolSearchData = data["bestMatches"],
                 _table = $("#tabDati tbody");
             _table.html("");
             for (let i = 0; i < 3; i++) {
-                getGlobalQuotes(symbolSearchData[i]["1. symbol"]);
+                if(nCall < 5) {
+                    getGlobalQuotes(symbolSearchData[i]["1. symbol"]);
+                }
+                else {
+                    alert("Limite richieste raggiunto!!");
+                    return;
+                }
             }
         }
     );
