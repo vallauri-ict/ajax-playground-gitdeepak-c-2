@@ -1,15 +1,24 @@
 let apiKey = "&apikey=4GTDM1R962FYU16M",
-    nCall = 0;
+    nCall = 0,
+    _myChart = $("#myChart");
 
 $(document).ready(function () {
     let _lstSymbol = $("#lstSymbol").prop("selectedIndex", -1),
-        _txtMatchWord = $("#textMatchWord");
+        _txtMatchWord = $("#textMatchWord"),
+        _lstSector = $("#lstSector"),
+        ctx;
+
     nCall = 0;
 
-    //creazione del grafico
+    //creazione del grafico iniziale
     $.getJSON("http://localhost:3000/chart", function (data) {
-        let ctx = document.getElementById('myChart').getContext('2d'),
-            myChart = new Chart(ctx, data);
+        if(!ctx) {
+            ctx = creaGrafico("http://localhost:3000/chart");
+            _myChart = new Chart(ctx, data);
+            $.getJSON("http://localhost:3000/SECTOR", function (data) {
+                modificaDatiGrafico(_myChart, data["Rank H: 3 Year Performance"]);
+            });
+        }
     })
 
     //gestione onChange comboBox
@@ -29,6 +38,15 @@ $(document).ready(function () {
             getSymbolSearch(_txtMatchWord.val());
             _txtMatchWord.val("");
         }
+    });
+
+    caricaComboBoxSector(_lstSector);
+    //gestione onChange comboBox sector
+    _lstSector.on("change", function () {
+        $(".container h2").html(this.value + "<br>Graphic");
+        $.getJSON("http://localhost:3000/SECTOR", function (data) {
+            modificaDatiGrafico(_myChart, data[$(_lstSector).val()]);
+        });
     });
 });
 
@@ -74,4 +92,47 @@ function getSymbolSearch(txt) {
             }
         }
     );
+}
+
+function caricaComboBoxSector(lst) {
+    $.getJSON("http://localhost:3000/SECTOR", function (data) {
+        for (let key in data){
+            if(key != "Meta Data") {
+                $("<option>", {
+                    text: key,
+                    class: "dropdown-item",
+                    value: key,
+                    appendTo: lst
+                });
+            }
+        }
+    });
+}
+
+function creaGrafico(url) {
+    let _data;
+    $.getJSON(url, function (data) {
+        _data = data;
+    });
+    let chart = new Chart($("#myChart"), _data);
+    return chart;
+}
+
+function modificaDatiGrafico(chart, data) {
+    let dataChart = chart["data"];
+    dataChart["labels"] = [];
+    let dataset = dataChart["datasets"][0];
+    dataset["data"] = [];
+    for (let key in data) {
+        dataChart["labels"].push(key);
+        dataset["data"].push(data[key].replace("%", ""));
+        let color = "rgba(" + Random(0, 255) + ", " + Random(0, 255) + ", " + Random(0, 255) + ", 0.9)";
+        dataset["backgroundColor"].push(color);
+        dataset["borderColor"].push(color);
+    }
+    chart.update();
+}
+
+function Random(max, min) {
+    return Math.floor(((max - min) + 1) * Math.random()) + min;
 }
