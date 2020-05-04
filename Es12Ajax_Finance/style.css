@@ -110,3 +110,13 @@ header label{
   text-align: center;
   margin-bottom: 2%;
 }
+
+.container div{
+  margin: 1% 50% 0 38%;
+}
+
+#saveChart{
+  width: 200px;
+  background: #83ba43;
+  border-color: #83ba43;
+}

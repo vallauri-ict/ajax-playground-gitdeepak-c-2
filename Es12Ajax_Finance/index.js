@@ -6,9 +6,11 @@ $(document).ready(function () {
     let _lstSymbol = $("#lstSymbol").prop("selectedIndex", -1),
         _txtMatchWord = $("#textMatchWord"),
         _lstSector = $("#lstSector"),
+        btnSave = $("#saveChart"),
         ctx;
 
-    nCall = 0;
+    nCall = 0,
+    btnSave.hide();
 
     //creazione del grafico iniziale
     $.getJSON("http://localhost:3000/chart", function (data) {
@@ -18,6 +20,7 @@ $(document).ready(function () {
             $.getJSON("http://localhost:3000/SECTOR", function (data) {
                 modificaDatiGrafico(_myChart, data["Rank H: 3 Year Performance"]);
             });
+            btnSave.show();
         }
     })
 
@@ -47,6 +50,11 @@ $(document).ready(function () {
         $.getJSON("http://localhost:3000/SECTOR", function (data) {
             modificaDatiGrafico(_myChart, data[$(_lstSector).val()]);
         });
+    });
+
+    //gestione click bottone
+    btnSave.on("click", function () {
+        document.getElementById("myChart").toDataURL("image/jpg");
     });
 });
 
