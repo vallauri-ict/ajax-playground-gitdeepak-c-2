@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     //gestione click bottone
     btnSave.on("click", function () {
-        document.getElementById("myChart").toDataURL("image/jpg");
+        btnSave.attr("href", _myChart.toBase64Image());
     });
 });
 

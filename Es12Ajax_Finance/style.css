@@ -112,11 +112,23 @@ header label{
 }
 
 .container div{
-  margin: 1% 50% 0 38%;
+  margin: 1% 20% 0 23%;
 }
 
-#saveChart{
+.container a{
+  color: #2c2e31;
   width: 200px;
   background: #83ba43;
   border-color: #83ba43;
+}
+
+.container a:hover{
+  background: #53ba33;
+  border-color: #23ba43;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background: #53ba33;
+  border-color: #23ba43;
 }
