@@ -7,10 +7,21 @@ $(document).ready(function () {
         _txtMatchWord = $("#textMatchWord"),
         _lstSector = $("#lstSector"),
         btnSave = $("#saveChart"),
+        btnUpload = $("#uploadChart"),
         ctx;
+
+    //gestione upload
+    let credentialKeys = {
+        clientId: "269699838782-3mhv4g31ocujaksfc2sn4eamigt9aspj.apps.googleusercontent.com",
+        token: "https://oauth2.googleapis.com/token",
+        redirect_uri: "http://localhost:8686/upload.html",
+        scope: "https://www.googleapis.com/auth/drive",
+        url: "",
+    };
 
     nCall = 0,
     btnSave.hide();
+    btnUpload.hide();
 
     //creazione del grafico iniziale
     $.getJSON("http://localhost:3000/chart", function (data) {
@@ -21,6 +32,7 @@ $(document).ready(function () {
                 modificaDatiGrafico(_myChart, data["Rank H: 3 Year Performance"]);
             });
             btnSave.show();
+            btnUpload.show();
         }
     })
 
@@ -56,7 +68,18 @@ $(document).ready(function () {
     btnSave.on("click", function () {
         btnSave.attr("href", _myChart.toBase64Image());
     });
+
+    btnUpload.on("click", function () {
+        signIn(credentialKeys["clientId"],credentialKeys["redirect_uri"],credentialKeys["scope"],credentialKeys["url"]);
+    });
 });
+
+function signIn(clientId,redirect_uri,scope,url){
+    url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri="+redirect_uri
+        +"&prompt=consent&response_type=code&client_id="+clientId+"&scope="+scope
+        +"&access_type=offline";
+    window.location = url;
+}
 
 function getGlobalQuotes(symbol) {
     let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + apiKey;

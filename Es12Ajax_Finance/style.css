@@ -132,3 +132,56 @@ header label{
   background: #53ba33;
   border-color: #23ba43;
 }
+
+/******************Wrapper upload********************/
+#wrapperUpload{
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+  padding: 2em 2% 1.7em 2%;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+#wrapperUpload button{
+  color: #2c2e31;
+  background: #83ba43;
+  border-color: #83ba43;
+}
+
+#wrapperUpload button:hover{
+  background: #53ba33;
+  border-color: #23ba43;
+}
+
+#progress-wrp {
+  border: 1px solid #53ba33;
+  padding: 1px;
+  position: relative;
+  height: 30px;
+  border-radius: 3px;
+  text-align: left;
+  background: #fff;
+  box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+  grid-column: auto / span 1;
+}
+
+#progress-wrp .progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  background-color: #83ba43;
+  width: 0;
+  box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.11);
+}
+
+#progress-wrp .status {
+  top: 3px;
+  left: 50%;
+  position: absolute;
+  display: inline-block;
+  color: #000000;
+}
