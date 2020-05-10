@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Upload</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="upload.js" type="application/javascript"></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Upload File</h1>
+    <div id="wrapperUpload">
+        <input id="files" type="file" name="files[]" multiple/>
+        <button class="btn btn-primary" id="upload">Upload</button>
+        <label>
+            Progresso:
+            <div id="progress-wrp">
+                <div class="progress-bar"></div>
+                <div class="status">0%</div>
+            </div>
+        </label>
+    </div>
+</body>
+
+</html>
