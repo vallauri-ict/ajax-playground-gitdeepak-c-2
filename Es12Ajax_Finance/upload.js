@@ -101,10 +101,8 @@ $(document).ready(function(){
         var file = $("#files")[0].files[0];
         var upload = new Upload(file);
 
-        // maby check size or type here with upload.getSize() and upload.getType()
-
-        // execute upload
         upload.doUpload();
+        //window.location.href = 'http://localhost:8686';
     });
 
 });

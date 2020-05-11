@@ -167,7 +167,6 @@ header label{
   text-align: left;
   background: #fff;
   box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
-  grid-column: auto / span 1;
 }
 
 #progress-wrp .progress-bar {
