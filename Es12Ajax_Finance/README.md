@@ -8,7 +8,7 @@
 * textbox in cui appena vengono inseriti almeno 2 caratteri, parte la api call che restituisce i dati in base al campo inserito
 * combobox che permette di scegliere il rank di cui devono essere visualizzati i dati nel grafico
 * button - SAVE CHART - permette di salvare il grafico come un image.jpg 
->  NB. L'immagine salvata se si apre con il programma foto predefinito di windows sembra      avere le scritte transaparenti, ma questo non capita con paint 
+>  NB. L'immagine salvata se aperta con il programma foto predefinito di windows sembra      avere le scritte transaparenti, ma questo non capita con paint 
 * button - UPLOAD CHART - permette di salvare il grafico su google drive mediante le api
 
 ## Problema - Risolto con Json Server!!!
@@ -17,7 +17,7 @@
 >Per ovviare a questo problema si è integrato node.js e installando json-server, si riesce a simulare il funzionamento di un Api call, quindi utilizzando esso si risolve il problema del limite delle chiamate
 
 ## Image figurativa
-![imgFigurativa](imgEsempio.PNG)
+![imgFigurativa](img/imgEsempio.PNG)
 
 ## Software neccesari:
 * Jet Brains(PhpStorm, WebStorm)

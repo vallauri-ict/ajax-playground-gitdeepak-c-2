@@ -1,10 +1,11 @@
 <html>
 
 <head>
-    <title>Finance</title>
+    <title>Finance | Alpha Vantage</title>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="index.js" type="application/javascript"></script>
-    <link rel="icon" href="favicon.png" type="image/png" />
+    <script src="upload.js" type="application/javascript"></script>
+    <link rel="icon" href="img/favicon.png" type="image/png" />
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-    <h1>Api Call - Finance</h1>
+    <h1>Finance - Alpha Vantage</h1>
     <header>
         <label>Select the symbol:</label>
         <div class="lst">
@@ -69,11 +70,27 @@
                 <i class="fa fa-download"></i>
             </a>
             <a class="btn btn-primary" id="uploadChart" title="Upload chart">
-                Upload Chart!!
-                <i class="fa fa-upload"></i>
+                Google Drive
+                <i class="fab fa-google-drive"></i>
             </a>
         </div>
     </div>
+    <div id="wrapperUpload">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        <button class="btn btn-primary" id="upload">
+            Upload Chart!!
+            <i class="fa fa-upload"></i>
+        </button>
+        <label>
+            Progress:
+            <div id="progress-wrp">
+                <div class="progress-bar"></div>
+                <div class="status">0%</div>
+            </div>
+        </label>
+    </div>
 </body>
-
 </html>

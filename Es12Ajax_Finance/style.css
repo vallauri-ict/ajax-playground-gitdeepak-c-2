@@ -135,16 +135,21 @@ header label{
 
 /******************Wrapper upload********************/
 #wrapperUpload{
-  width: fit-content;
+  width: 800px;
   margin: 0 auto;
+  margin-bottom: 1%;
   border-radius: 10px;
   background: #fff;
-  padding: 2em 2% 1.7em 2%;
+  padding: 2em 1.5em 1.2em 1.5em;
   z-index: 1;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  column-count: 2;
   grid-gap: 1rem;
+}
+
+#upload{
+  grid-column: 2;
 }
 
 #wrapperUpload button{
@@ -158,6 +163,21 @@ header label{
   border-color: #23ba43;
 }
 
+#wrapperUpload label{
+  grid-column: auto / span 2;
+}
+
+.custom-file-label {
+  color: #495751;
+  border: 1px solid #83ba43;
+  border-radius: .25rem;
+}
+
+.custom-file-input:focus~.custom-file-label {
+  border-color: #53ba33;
+  box-shadow: 0 0 0 0.2rem rgba(131, 186, 67,.25);
+}
+
 #progress-wrp {
   border: 1px solid #53ba33;
   padding: 1px;
@@ -167,6 +187,7 @@ header label{
   text-align: left;
   background: #fff;
   box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+  grid-column: 1 / 2;
 }
 
 #progress-wrp .progress-bar {

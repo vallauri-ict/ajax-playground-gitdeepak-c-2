@@ -10,14 +10,21 @@ $(document).ready(function () {
         btnUpload = $("#uploadChart"),
         ctx;
 
+    $("#wrapperUpload").hide();
     //gestione upload
-    let credentialKeys = {
+    const credentialKeys = {
         clientId: "269699838782-3mhv4g31ocujaksfc2sn4eamigt9aspj.apps.googleusercontent.com",
         token: "https://oauth2.googleapis.com/token",
-        redirect_uri: "http://localhost:8686/upload.html",
+        redirect_uri: "http://localhost:8686",
         scope: "https://www.googleapis.com/auth/drive",
-        url: "",
+        client_secret: "DfuJ79_jJ77YY752SQTMvPM9",
+        accessToken: ""
     };
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if(localStorage.getItem("accessFlag") != null) {
+        setTokens(credentialKeys["clientId"], credentialKeys["client_secret"], credentialKeys["redirect_uri"], credentialKeys["scope"], code);
+    }
 
     nCall = 0,
     btnSave.hide();
@@ -69,16 +76,58 @@ $(document).ready(function () {
         btnSave.attr("href", _myChart.toBase64Image());
     });
 
+    //aggiorna con nome file alla selezione
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    //Drive upload
     btnUpload.on("click", function () {
-        signIn(credentialKeys["clientId"],credentialKeys["redirect_uri"],credentialKeys["scope"],credentialKeys["url"]);
+        if(localStorage.getItem("accessToken") == null) {
+            signIn(credentialKeys["clientId"], credentialKeys["client_secret"], credentialKeys["redirect_uri"], credentialKeys["scope"]);
+            let accessFlag = "false";
+            localStorage.setItem("accessFlag", accessFlag);
+        }
+        else {
+            $("#wrapperUpload").show("slow", "linear");
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#wrapperUpload").offset().top
+            }, 2000, function () {
+                $("#upload").on("click", function (e) {
+                    carica();
+                    $("#frameContainer").hide("slow", "linear");
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $(".container").offset().top
+                    }, 2000);
+                });
+            }
+        )}
     });
 });
 
-function signIn(clientId,redirect_uri,scope,url){
-    url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri="+redirect_uri
-        +"&prompt=consent&response_type=code&client_id="+clientId+"&scope="+scope
-        +"&access_type=offline";
-    window.location = url;
+function carica() {
+    if($("#customFile").val() != ""){
+        let file = $("#customFile")[0].files[0];
+        let upload = new Upload(file).doUpload();
+        upload.done(function (data)
+        {
+            alert("Caricamento su Google Drive effettuato correttamente");
+            $("label[for=customFile]").text("Choose your file");
+            $("#driveFile").val("");
+            $("#wrapperUpload").hide("slow", "linear");
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".container").offset().top
+            }, 2000);
+        });
+        upload.fail(function ()
+        {
+            alert("Errore nel caricamento!");
+        });
+    }
+    else
+    {
+        alert("Selezionare un file prima!!");
+    }
 }
 
 function getGlobalQuotes(symbol) {
