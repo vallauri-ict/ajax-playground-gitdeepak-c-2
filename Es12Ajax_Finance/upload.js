@@ -62,7 +62,7 @@ class Upload
             },
             url: "https://www.googleapis.com/upload/drive/v2/files",
             uploadType: "media",
-
+            title: this.getName(),
             xhr: function () {
                 let myXhr = $.ajaxSettings.xhr();
                 return myXhr;
@@ -76,30 +76,6 @@ class Upload
         });
     }
 }
-
-/*Upload.prototype.progressHandling = function (event) {
-    var percent = 0;
-    var position = event.loaded || event.position;
-    var total = event.total;
-    var progress_bar_id = "#progress-wrp";
-    if (event.lengthComputable) {
-        percent = Math.ceil(position / total * 100);
-    }
-    // update progressbars classes so it fits your code
-    $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
-    $(progress_bar_id + " .status").text(percent + "%");
-};
-
-$("#upload").on("click", function (e) {
-    var file = $("#files")[0].files[0];
-    var upload = new Upload(file);
-
-    upload.doUpload();
-    $("#frameContainer").hide("slow", "linear");
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $(".container").offset().top
-    }, 2000);
-});*/
 
 function inviaRichiesta(method, url, parameters="") {
     return $.ajax({

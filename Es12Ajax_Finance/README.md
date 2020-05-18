@@ -3,7 +3,7 @@
 #### Autore: Chopra Deepak
 
 ## Descrizione
-> Un semplice esercizio in cui si effetuano delle api call per poter caricare i dati in tabella. Il sito utilizzato è l'Alpha Vantage. La pagina ha un header con 2 filtri per la ricerca:
+> Un semplice esercizio in cui si effetuano delle api call per poter caricare i dati in tabella. Il sito utilizzato è l'Alpha Vantage. La pagina ha un header con una serie di filtri per la ricerca:
 * combobox che permette di scegliere il 'symbol' di cui visualizzare i dati
 * textbox in cui appena vengono inseriti almeno 2 caratteri, parte la api call che restituisce i dati in base al campo inserito
 * combobox che permette di scegliere il rank di cui devono essere visualizzati i dati nel grafico
@@ -24,7 +24,7 @@
 * Git(per Windows o OS)
 * Alpha Vantage(per le api call)
 * Node.js(per json-server)
-* Google Drive(per la api key)
+* Google Drive API(per la api key)
 
 ## Team work
 > Invece si utilizza la piattaforma Github per poter lavorare anche da casa in gruppo senza alcun problema, visto che offre la possibiltà di creare repository condivise dove ciascuno può effettuare le modifiche necessarie. Il nostro è un utilizzo della piattaforma ancora superficiale, visto che abbiamo un repository ciascuno e siamo monitorari dal professore.

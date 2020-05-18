@@ -15,7 +15,7 @@ $(document).ready(function () {
     const credentialKeys = {
         clientId: "269699838782-3mhv4g31ocujaksfc2sn4eamigt9aspj.apps.googleusercontent.com",
         token: "https://oauth2.googleapis.com/token",
-        redirect_uri: "http://localhost:8686",
+        redirect_uri: "http://localhost:8686/index.html",
         scope: "https://www.googleapis.com/auth/drive",
         client_secret: "DfuJ79_jJ77YY752SQTMvPM9",
         accessToken: ""
@@ -92,16 +92,11 @@ $(document).ready(function () {
             $("#wrapperUpload").show("slow", "linear");
             $([document.documentElement, document.body]).animate({
                 scrollTop: $("#wrapperUpload").offset().top
-            }, 2000, function () {
-                $("#upload").on("click", function (e) {
-                    carica();
-                    $("#frameContainer").hide("slow", "linear");
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $(".container").offset().top
-                    }, 2000);
-                });
-            }
-        )}
+            }, 2000);
+            $("#upload").unbind('click').bind('click', function (e) {
+                carica();
+            });
+        }
     });
 });
 
@@ -109,15 +104,20 @@ function carica() {
     if($("#customFile").val() != ""){
         let file = $("#customFile")[0].files[0];
         let upload = new Upload(file).doUpload();
+        move();
         upload.done(function (data)
         {
-            alert("Caricamento su Google Drive effettuato correttamente");
-            $("label[for=customFile]").text("Choose your file");
-            $("#driveFile").val("");
             $("#wrapperUpload").hide("slow", "linear");
             $([document.documentElement, document.body]).animate({
                 scrollTop: $(".container").offset().top
             }, 2000);
+            $("label[for=customFile]").text("Choose your file");
+            $("#customFile").val('');
+            $(".progress-bar").css('width', "0");
+            $(".status").text("0%");
+            setTimeout(function () {
+                alert("Caricamento su Google Drive effettuato correttamente");
+            }, 1400);
         });
         upload.fail(function ()
         {
@@ -128,6 +128,20 @@ function carica() {
     {
         alert("Selezionare un file prima!!");
     }
+}
+
+function move() {
+    let percent = 0;
+    $(".progress-bar").animate({
+        width: "100%"
+    }, {
+        duration: 900,
+        easing: "linear",
+        step: function() {
+            percent = ($(".progress-bar").width() / 235).toFixed(1) * 100;
+            $(".status").text(percent + "%");
+        }
+    });
 }
 
 function getGlobalQuotes(symbol) {
